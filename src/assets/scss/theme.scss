@@ -1,0 +1,36 @@
+@import '~@angular/material/theming';
+
+$custom-typography: mat-typography-config($font-family: '"Quicksand",sans-serif;') ;
+@include mat-core($custom-typography);
+
+// light theme (default)
+$medclify-light-primary: mat-palette($mat-purple);
+$medclify-light-accent: mat-palette($mat-amber, A200, A100, A400);
+$medclify-light-warn: mat-palette($mat-red);
+
+$medclify-light-theme: mat-light-theme((
+  color: (
+    primary: $medclify-light-primary,
+    accent: $medclify-light-accent,
+    warn: $medclify-light-warn,
+  )
+));
+
+@include angular-material-theme($medclify-light-theme);
+
+// dark theme
+$medclify-dark-primary: mat-palette($mat-orange);
+$medclify-dark-accent: mat-palette($mat-pink, A200, A100, A400);
+$medclify-dark-warn: mat-palette($mat-red);
+
+$medclify-dark-theme: mat-dark-theme((
+  color: (
+      primary: $medclify-dark-primary,
+      accent: $medclify-dark-accent,
+      warn: $medclify-dark-warn,
+    )
+));
+
+.dark-theme{
+  @include angular-material-theme($medclify-dark-theme);
+}

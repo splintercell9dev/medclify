@@ -1,0 +1,29 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+   <mat-icon class="brand-icon">eco</mat-icon>
+   <span class="nav-title">Medclify</span>
+
+   <button fxHide.lt-sm fxShow class="desktop-button" mat-button>About Medclify</button>
+   <button fxHide.lt-sm fxShow class="desktop-button" mat-button>Developer's Note</button>
+   
+   <span class="spacing"></span>
+   
+   <mat-icon>brightness_high</mat-icon>
+   <mat-slide-toggle matTooltip="Toggle Dark/Light Theme" [(ngModel)]="isdDarkTheme" (change)="toggleTheme()">
+   </mat-slide-toggle>
+   <mat-icon>bedtime</mat-icon>
+   
+   <button mat-icon-button fxHide.gt-xs fxShow [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+   </button>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+   <button mat-menu-item>
+      <mat-icon>info</mat-icon>
+      <span>About MedClify</span>
+   </button>
+   <button mat-menu-item>
+      <mat-icon>event_note</mat-icon>
+      <span>Developer's Note</span>
+   </button>
+</mat-menu>

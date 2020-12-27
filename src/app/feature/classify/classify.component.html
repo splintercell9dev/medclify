@@ -1,0 +1,64 @@
+<div class="classify-container" (scroll)="onScroll($event)">
+   
+   <!-- dark - light background -->
+   
+   <div class="background-container">
+      
+      <!-- pattern -->
+      <div class="light-pattern" [ngClass]="{ 'invert': isDark }" *ngIf="true">
+      </div>
+      
+      <!-- main heading and image -->
+      <div class="heading-container" [ngClass]="{ 'dark-heading' : isDark }" [ngClass.sm]="{'heading-sm': true, 'dark-heading': isDark}">
+         <div class="main-container">
+            <img src="./assets/images/plant.png" class="plant">
+            <div class="main-heading">a simple leaf classifier</div>
+            <div class="sub-heading">
+               Classify different types of medical plant species found in wild by using picture of their leaf. Get to know if there is any plant with medicinal properties around you.
+            </div>
+            <hr>
+         </div>
+         <a href="https://www.vecteezy.com/vector-art/566939-tree-vector" class="img-container" [ngClass]="{ 'invert': isDark }">
+            <img src="./assets/images/tree_roots.png" class="tree" matTooltip="Tree Vectors by Vecteezy">
+         </a>
+      </div>
+
+      <div class="down-arrow" *ngIf="showDownArrow" [ngClass]="{'invert': isDark}">
+         <mat-icon>expand_more</mat-icon>
+      </div>
+      
+   </div>
+   
+
+   <div class="card-header" [ngClass]="{'dark-gradient-text': isDark}">
+      Easy steps to classify leaf image
+   </div>
+   
+   <!-- cards -->
+   <div class="box-container">
+      <div class="flex-container" fxLayout="row wrap" fxLayoutGap="20px grid" fxFlexLayoutGap="25px" fxLayoutAlign="center stretch">
+         <div fxFlex="20%" fxFlex.xs="95%" fxFlex.sm="30%" fxFlex.md="20%" fxFlex.lg="15%" *ngFor="let item of stepsToClassify">
+            <mat-card class="mat-elevation-z5" [ngStyle.sm]="{'height.px': 160}" [ngStyle.gt-sm]="{'height.px': 180}">
+               <mat-card-content fxFlexFill fxLayout.xs="row" fxLayout="column" fxLayoutAlign="center center" [ngClass.xs]="{ mobile: true}">
+                  <div class="icon">
+                     <mat-icon color="primary">{{item.icon}}</mat-icon>
+                  </div>
+                  <p>{{item.description}}</p>
+               </mat-card-content>
+            </mat-card>
+         </div>
+      </div>
+   </div>
+
+   <!-- predict button -->
+   <div class="img-button">
+      <button color="accent" class="mat-elevation-z2" mat-raised-button (click)="openUploadDialog()">
+         <mat-icon>publish</mat-icon>
+         <span> Upload Image</span>
+      </button>
+   </div>
+
+   <br><br><br><br><br><br><br><br><br>
+   <br><br><br><br><br><br><br><br><br>
+   <br><br><br><br><br><br><br><br><br>
+</div>

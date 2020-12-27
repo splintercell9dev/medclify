@@ -1,0 +1,62 @@
+@import 'helper' ;
+
+mat-toolbar{
+   position: relative;
+   user-select: none;
+   z-index: 2;
+
+   span.nav-title{
+      font-family: 'fredoka one';
+      font-size: 20px;
+      margin-left: 0.25rem;
+      margin-right: 1rem ;
+      letter-spacing: 0.25rem;
+   }
+
+   .brand-icon{
+      transform: scaleX(-1);
+      text-shadow: 0 5px 10px gray;
+   }
+
+   span.spacing{
+      margin-left: auto;
+   }
+
+   mat-slide-toggle{
+      margin-left: 0.625rem;
+      margin-right: 0.625rem;
+   }
+
+   button{
+      font-weight: bold;
+
+      &.toggle{
+         & + button.desktop-button{
+            margin-left: 5px;
+         }
+      }
+
+      &.desktop-button{
+         + button.desktop-button{
+            margin-left: 5px;
+         }
+      }
+   }
+}
+
+.mat-menu-item{
+   font-weight: bold !important;
+   font-size: 12pt;
+}
+
+@media screen and (min-width: 599px){
+   mat-toolbar{
+      span.nav-title{
+         font-size: 25px;
+      }
+   
+      .brand-icon{
+         @include IconSetup(32px) ;
+      }
+   }
+}

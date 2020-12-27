@@ -1,18 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavModule } from '@shared/nav/nav.module' ;
+import { ClassifyModule } from '@feature/classify/classify.module';
+import { NotFoundModule } from '@feature/not-found/not-found.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NavModule,
+    ClassifyModule,
+    NotFoundModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

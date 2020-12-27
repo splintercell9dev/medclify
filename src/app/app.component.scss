@@ -1,0 +1,63 @@
+div.container{
+   width: 100%;
+   height: 100% ;
+   position: fixed;
+   top: 0 ;
+
+   div.load-overlay{
+      position: absolute;
+      top: 0 ;
+      width: 100%;
+      height: 100% ;
+      z-index: 100 ;
+      background-color: rgb(230, 230, 230) ;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .loader{
+         position: relative;
+         width: 80px ;
+         height: 80px ;
+         border-radius: 50%;
+         background: linear-gradient(45deg, transparent, transparent 40%, red);
+         animation: rotating 2s linear infinite;
+
+         &:before{
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px ;
+            bottom: 6px ;
+            right: 6px;
+            border-radius: 50%;
+            z-index: 200;
+            background-color:  rgb(230,230,230) ;
+         }
+
+         &:after{
+            content: '' ;
+            position: absolute;
+            top: 0px ;
+            left: 0px ;
+            bottom: 0px ;
+            right: 0px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, transparent, transparent 40%, red);
+            z-index: 1;
+            filter: blur(15px);
+         }
+      }
+   }
+}
+
+@keyframes rotating{
+   0%{
+      transform: rotate(0deg);
+      filter: hue-rotate(0deg);
+   }
+   100%{
+      transform: rotate(360deg);
+      filter: hue-rotate(360deg);
+   }
+}

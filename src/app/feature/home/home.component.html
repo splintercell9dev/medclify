@@ -1,0 +1,72 @@
+<div class="home-container" (scroll)="onScroll($event)">
+   
+   <!-- dark - light background -->
+   
+   <div class="background-container">
+      
+      <!-- pattern -->
+      <div class="light-pattern" [ngClass]="{ 'invert': isDark }" *ngIf="true">
+      </div>
+      
+      <!-- main heading and image -->
+      <div class="heading-container" [ngClass]="{ 'dark-heading' : isDark }" [ngClass.sm]="{'heading-sm': true, 'dark-heading': isDark}">
+         <div class="main-container">
+            <img src="./assets/images/plant.png" class="plant">
+            <div class="main-heading">a simple leaf classifier</div>
+            <div class="sub-heading">
+               Classify different types of medical plant species found in wild by using picture of their leaf. Get to know if there is any plant with medicinal properties around you.
+            </div>
+            <hr>
+         </div>
+         <a class="img-container" href="https://www.vecteezy.com/vector-art/566939-tree-vector" [ngClass]="{ 'invert': isDark }" fxShow fxHide.xs>
+            <img src="./assets/images/tree_roots.png" class="tree" matTooltip="Tree Vectors by Vecteezy" alt="tree">
+         </a>
+      </div>
+      
+      <div class="down-arrow" *ngIf="showDownArrow" [ngClass]="{'invert': isDark}">
+         <mat-icon>expand_more</mat-icon>
+      </div>
+      
+   </div>
+   
+   <!-- info box -->
+   <div class="info-box">
+      <p [ngClass]="{'dark-border': isDark}">
+         Ayurvedic medicines have a vital role in preserving physical and mental health of human beings. It can cure various diseases such as Cardiac disorders, Respiratory diseases, Fertility issues etc.
+         So a precise identification of medicinal plants is crucial for proper treatment. There are various opportunities for advancement in producing a robust classifier that has the ability to classify medicinal plants accurately in real-time. 
+      </p>
+   </div>
+   
+   <div class="card-header" [ngClass]="{'dark-gradient-text': isDark}">
+      steps to easily classify leaf image
+   </div>
+   
+   <!-- cards -->
+   <div class="box-container">
+      <div class="flex-container" fxLayout="row wrap" fxLayoutGap="20px grid" fxLayoutAlign="center stretch">
+         <div fxFlex="20%" fxFlex.xs="95%" fxFlex.sm="33%" fxFlex.md="20%" fxFlex.lg="15%" *ngFor="let item of stepsToClassify">
+            <mat-card class="mat-elevation-z5" [ngStyle.sm]="{'height.px': 160}" [ngStyle.gt-sm]="{'height.px': 180}">
+               <mat-card-content fxFlexFill fxLayout.xs="row" fxLayout="column" fxLayoutAlign="center center" [ngClass.xs]="{ mobile: true}">
+                  <div class="icon">
+                     <mat-icon color="primary">{{item.icon}}</mat-icon>
+                  </div>
+                  <p>{{item.description}}</p>
+               </mat-card-content>
+            </mat-card>
+         </div>
+      </div>
+   </div>
+   
+   <div class="logo-header" [ngClass]="{'dark-gradient-text': isDark}">
+      technologies used
+   </div>
+
+   <div class="logo-container">
+      <img id="img1" src="./assets/images/python.png" alt="python logo">      
+      <img id="img2" src="./assets/images/nodejs.png" alt="nodejs logo">
+      <img id="img3" src="./assets/images/tensorflow.png" alt="tensorflow logo">      
+   </div>
+   
+   
+   <br><br><br><br><br><br><br><br><br>
+</div>

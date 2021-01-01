@@ -1,17 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ClassifyComponent } from '@feature/classify/classify.component';
-import { NotFoundComponent } from '@feature/not-found/not-found.component';
 
 const routes: Routes = [
   {
-    path: '', pathMatch: 'full', redirectTo: 'classify',
+    path: '', pathMatch: 'full', redirectTo: 'home',
   },
   {
-    path: 'classify', component: ClassifyComponent
+    path: 'home', loadChildren: () => import('@feature/home/home.module').then( m => m.HomeModule)
   },
   {
-    path: '**', component: NotFoundComponent
+    path: 'species/:id', loadChildren: () => import('@feature/species/species.module').then( m => m.SpeciesModule)
+  },
+  {
+    path: '**', loadChildren: () => import('@feature/not-found/not-found.module').then( m => m.NotFoundModule)
   }
 ];
 
@@ -19,4 +20,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

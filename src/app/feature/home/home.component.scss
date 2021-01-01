@@ -1,0 +1,328 @@
+@import 'helper' ;
+
+div.home-container{
+   height: calc(100% - 64px) ;
+   overflow-y: auto;
+   position: relative ;
+
+   div.background-container{
+      width: 100%;
+      height: 100%;
+      position: relative;
+      
+      // light - dark pattern background
+      div.light-pattern{
+         height: 100%;
+         background-image: linear-gradient(22.5deg, rgba(242, 242, 242, 0.03) 0%, rgba(242, 242, 242, 0.03) 16%,rgba(81, 81, 81, 0.03) 16%, rgba(81, 81, 81, 0.03) 26%,rgba(99, 99, 99, 0.03) 26%, rgba(99, 99, 99, 0.03) 73%,rgba(43, 43, 43, 0.03) 73%, rgba(43, 43, 43, 0.03) 84%,rgba(213, 213, 213, 0.03) 84%, rgba(213, 213, 213, 0.03) 85%,rgba(125, 125, 125, 0.03) 85%, rgba(125, 125, 125, 0.03) 100%),linear-gradient(22.5deg, rgba(25, 25, 25, 0.03) 0%, rgba(25, 25, 25, 0.03) 54%,rgba(144, 144, 144, 0.03) 54%, rgba(144, 144, 144, 0.03) 60%,rgba(204, 204, 204, 0.03) 60%, rgba(204, 204, 204, 0.03) 76%,rgba(37, 37, 37, 0.03) 76%, rgba(37, 37, 37, 0.03) 78%,rgba(115, 115, 115, 0.03) 78%, rgba(115, 115, 115, 0.03) 91%,rgba(63, 63, 63, 0.03) 91%, rgba(63, 63, 63, 0.03) 100%),linear-gradient(157.5deg, rgba(71, 71, 71, 0.03) 0%, rgba(71, 71, 71, 0.03) 6%,rgba(75, 75, 75, 0.03) 6%, rgba(75, 75, 75, 0.03) 15%,rgba(131, 131, 131, 0.03) 15%, rgba(131, 131, 131, 0.03) 18%,rgba(110, 110, 110, 0.03) 18%, rgba(110, 110, 110, 0.03) 37%,rgba(215, 215, 215, 0.03) 37%, rgba(215, 215, 215, 0.03) 62%,rgba(5, 5, 5, 0.03) 62%, rgba(5, 5, 5, 0.03) 100%),linear-gradient(90deg, #ffffff,#ffffff);
+      }
+
+      // down arrow
+      div.down-arrow{
+         position: absolute;
+         display: inline ;
+         left: 50% ;
+         bottom: -5px;
+         color: purple ;
+         transform: translate(-50%, -50%);
+         animation: bounce 3s infinite;
+         
+         mat-icon{
+            font-size: 36px ;
+         }
+      }
+
+      // heading
+      div.heading-container{
+         position: absolute;
+         top: 0 ;
+         left: 0 ;
+         width: 100% ;
+         height: 100% ;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+         div.main-container{
+            width: 25rem ;
+            margin-bottom: 2.5rem;
+            div.main-heading{
+               text-transform: uppercase;
+               font-size: 70px ;
+               font-family: 'righteous', serif;
+               line-height: 60px;
+               background: linear-gradient(45deg, blue, crimson);
+               background-clip: text;
+               color: transparent;
+            }
+
+            div.sub-heading{
+               display: inline-block;
+               margin-top: 15px;
+               width: 90% ;
+               font-size: 12pt;
+               color: blueviolet ;
+               font-weight: bold ;
+               margin-bottom: 10px;
+            }
+
+            img.plant{
+               width: 64px;
+            }
+
+            hr{
+               height: 8px ;
+               background: linear-gradient(45deg, blue, crimson);
+               outline: none;
+               border: 0;
+               border-radius: 10px ;
+            }
+         }
+
+         a.img-container{
+            display: block;
+            img{
+               width: $tree-width;
+            }
+         }
+      }
+   }
+
+   div.card-header{
+      font-size: 30px;
+      font-family: 'righteous', serif;
+      text-transform: uppercase;
+      padding: 30px;
+      text-align: center;
+      line-height: 25px;
+      background-image: linear-gradient(45deg, blue, crimson);
+      background-clip: text ;
+      color: transparent;
+   }
+
+   div.box-container{
+      padding: 20px;
+      
+      div.flex-container{
+         
+         mat-card{
+            font-weight: 500;
+            cursor: pointer;
+
+            mat-card-content{
+               text-align: center;
+               div.icon{
+                  display: flex;
+                  margin-bottom: 10px;
+                  mat-icon{
+                     justify-content: center;
+                     @include IconSetup(48px) ;
+                  }
+               }
+            }
+         }
+      }
+   }
+
+   div.info-box{
+      min-width: 450px ;
+      width: 50% ;
+      max-width: 60%;
+      @include MarginXY(auto, 5rem) ;
+      
+      p{
+         @include PaddingXY(2.5rem, 2.5rem) ;
+         font-size: 18px ;
+         font-weight: bold ;
+         text-align: justify;
+         margin-bottom: 0px !important ;
+         border: 8px solid ;
+         -webkit-border-image: linear-gradient(blue,crimson) 30 ;
+         border-image: linear-gradient(45deg, blue, crimson) 30 ;
+      }      
+   }
+
+   div.logo-header{
+      margin-top: 5rem ;
+      font-size: 30px ;
+      font-family: 'righteous', serif ;
+      text-align: center ;
+      text-transform: uppercase;
+      background-image: linear-gradient(45deg, blue, crimson);
+      background-clip: text ;
+      color: transparent;
+      line-height: 25px ;
+   }
+
+   div.logo-container{
+      position: relative;
+      width: 30rem ;
+      height: 350px ;
+      @include MarginXY(auto, 2.5rem) ;
+
+      img{
+         position: absolute;
+         transform: translate(-50%, 0);
+
+         &#img1{
+            left: 25% ;
+            top: 10% ;
+            width: 150px ;
+         }
+
+         &#img2{
+            left: 75% ;
+            top: 10% ;
+            width: 150px ;
+         }
+
+         &#img3{
+            bottom: 5% ;
+            left: 50%;
+            width: 300px ;
+         }
+      }
+
+   }
+}
+
+.mobile{
+   @include CardPadding(16px) ;
+}
+
+// xs devices
+@media (max-width: 599px){
+   div.home-container{
+      height: calc(100% - 54px);
+
+      div.box-container{
+         mat-card{
+            height: auto !important;
+         }
+
+         div.icon{
+            margin-bottom: 0px !important;
+         }
+      }
+
+      div.background-container{
+         div.heading-container{
+            .main-container{
+               width: 16rem !important ;
+
+               .main-heading{
+                  font-size: 45px !important;
+                  line-height: 45px !important;
+               }
+               
+               .sub-heading{
+                  font-size: 14px !important;
+               }
+            }
+         }
+      }
+
+      div.info-box{
+         min-width: 90% !important ;
+         p{
+            padding: 1.5rem ;
+            font-size: 12px ;
+         }
+      }
+
+      div.logo-container{
+         width: 100%;
+         height: 250px !important ;
+         margin-left: 0 !important;
+         margin-right: 0 !important;
+         img{
+            &#img1{
+               left: 30% ;
+               top: 10% ;
+               width: 100px ;
+            }
+   
+            &#img2{
+               left: 70% ;
+               top: 10% ;
+               width: 100px ;
+            }
+   
+            &#img3{
+               bottom: 5% ;
+               left: 50%;
+               width: 200px ;
+            }
+         }
+      }
+   }
+}
+
+.invert{
+   filter: invert(0.9);
+}
+
+.dark-gradient-text{
+   background: linear-gradient(45deg, orange, red) !important;
+   background-clip: text !important;
+}
+
+.dark-border{
+   -webkit-border-image: linear-gradient(orange,red) 30 !important;
+   border-image: linear-gradient(45deg, orange, red) 30 !important;
+}
+
+.heading-sm{
+   div.main-container{
+      width: 18rem !important ;
+      .main-heading{
+         font-size: 40px !important;
+         line-height: 35px !important;
+      }
+      .sub-heading{
+         font-size: 10pt !important;
+      }
+      img.plant{
+         width: 32px !important;
+      }
+   }
+
+   a.img-container{
+      margin-bottom: 1rem !important;
+      img{
+         width: 15rem !important ;
+      }
+   }
+}
+
+.dark-heading{
+   div.main-heading{
+      background: linear-gradient(45deg, orange, red) !important;
+      background-clip: text !important;
+   }
+
+   div.sub-heading{
+      color: lightblue !important;
+   }
+
+   hr{
+      background: linear-gradient(45deg, orange, red) !important;
+   }
+}
+
+.dark-img{
+   filter: invert(1);
+}
+
+@keyframes bounce{
+   0%, 20%, 50%, 80%, 100%{
+      opacity: 1;
+      transform: translate(-50%, -50%);
+   }
+   40%{
+      opacity: 0;
+      transform: translate(-50%, -60px);
+   }
+   60%{
+      transform: translate(-50%, -30px);
+   }
+}

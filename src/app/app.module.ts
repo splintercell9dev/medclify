@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavModule } from '@shared/nav/nav.module' ;
-import { ClassifyModule } from '@feature/classify/classify.module';
 import { NotFoundModule } from '@feature/not-found/not-found.module';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -17,8 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     NavModule,
-    ClassifyModule,
-    NotFoundModule,
     HttpClientModule
   ],
   providers: [],

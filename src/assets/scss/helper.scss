@@ -1,7 +1,7 @@
 $brand-icon-desktop: 32px ;
 $brand-icon-mobile: 28px ;
 $img-icon-dimension: 48px ;
-$card-margin: 2.5rem ;
+$normal-margin-y: 1.5rem ;
 $tree-width: 24rem ;
 
 @mixin IconSetup($dimension) {
@@ -19,4 +19,15 @@ $tree-width: 24rem ;
    p{
       padding: $size !important;
    }
+}
+
+@mixin MarginXY($x, $y){
+   margin-left: $x;
+   margin-right: $x;
+   margin-top: $y;
+   margin-bottom: $y;
+}
+
+@mixin PaddingXY($x, $y){
+   padding: $x $y ;
 }

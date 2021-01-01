@@ -1,6 +1,6 @@
 @import '~@angular/material/theming';
 
-$custom-typography: mat-typography-config($font-family: '"Quicksand",sans-serif;') ;
+$custom-typography: mat-typography-config($font-family: '"roboto mono",monospace ;') ;
 @include mat-core($custom-typography);
 
 // light theme (default)

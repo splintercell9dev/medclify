@@ -3,7 +3,7 @@
    <span class="nav-title">Medclify</span>
 
    <button fxHide.lt-sm fxShow class="desktop-button" mat-button>About Medclify</button>
-   <button fxHide.lt-sm fxShow class="desktop-button" mat-button>Developer's Note</button>
+   <button fxHide.lt-sm fxShow class="desktop-button" (click)="openUploadDialog()" mat-button>Classify Image</button>
    
    <span class="spacing"></span>
    
@@ -22,8 +22,8 @@
       <mat-icon>info</mat-icon>
       <span>About MedClify</span>
    </button>
-   <button mat-menu-item>
-      <mat-icon>event_note</mat-icon>
-      <span>Developer's Note</span>
+   <button (click)="openUploadDialog()" mat-menu-item>
+      <mat-icon>image_search</mat-icon>
+      <span>Classify Leaf Image</span>
    </button>
 </mat-menu>

@@ -9,9 +9,13 @@ import { MatTooltipModule } from '@angular/material/tooltip' ;
 import { MatSlideToggleModule } from '@angular/material/slide-toggle' ;
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatDialogModule } from '@angular/material/dialog';
+import { NgxFileDropModule } from 'ngx-file-drop';
+import { MatTableModule } from '@angular/material/table' ;
+import { UploadDialogComponent } from '@shared/components/upload-dialog/upload-dialog.component';
 
 @NgModule({
-  declarations: [NavComponent],
+  declarations: [NavComponent, UploadDialogComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -21,7 +25,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatTooltipModule,
     MatSlideToggleModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatDialogModule,
+    NgxFileDropModule,
+    MatTableModule
   ],
   exports: [NavComponent]
 })

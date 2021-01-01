@@ -8,7 +8,7 @@
                     <h3>Drag and Drop your Files Here</h3>
                     <p>OR</p>
                     <div>
-                        <a mat-button (click)="openFileSelector()">Click Here to Browse Files</a>
+                        <a mat-raised-button color="accent" (click)="openFileSelector()">Click Here to Browse Files</a>
                     </div>
                 </div>
             </ng-template>
@@ -16,16 +16,30 @@
 
         <div class="file-detail" *ngIf="!showFileDrop">
             <img [src]="imgUrl" class="mat-elevation-z4">
-            <p>Name: {{fileDetail.fileName}}</p>
-            <p>Size: {{fileDetail.fileSize}}</p>
-            <p>Type: {{fileDetail.fileType}}</p>
-            <button mat-button (click)="toggleFileView()">Take a different picture !</button>
+            <table mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+                <ng-container matColumnDef="size">
+                    <th mat-header-cell *matHeaderCellDef> Size </th>
+                    <td mat-cell *matCellDef="let element"> {{element.size}} </td>
+                </ng-container>
+                <ng-container matColumnDef="type">
+                    <th mat-header-cell *matHeaderCellDef> Type </th>
+                    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <button id="anotherimg" mat-raised-button color="accent" (click)="toggleFileView()">Take a different picture !</button>
         </div>
     </mat-dialog-content>
 
     <mat-dialog-actions align="end">
-        <button mat-stroked-button mat-dialog-close cdkFocusInitial>Close</button>
-        <button mat-stroked-button [disabled]="showFileDrop" (click)="uploadPicture()">Upload</button>
+        <button mat-raised-button color="warn" mat-dialog-close cdkFocusInitial>Close</button>
+        <button mat-raised-button color="accent" [disabled]="showFileDrop" (click)="uploadPicture()">Upload</button>
     </mat-dialog-actions>
 
 </div>

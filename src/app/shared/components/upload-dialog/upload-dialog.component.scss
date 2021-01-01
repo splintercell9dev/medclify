@@ -10,13 +10,34 @@ div.upload-container{
             img{
                 width: 200px;
             }
+
+            table{
+                text-align: left;
+                margin-top: 1rem ;
+                margin-bottom: 1.5rem;
+                width: 100% ;
+
+                th{
+                    font-size: 12pt;
+                    font-weight: bolder;
+                }
+
+                td{
+                    font-size: 10pt;
+                    font-weight: 600;
+                }
+            }
+            #anotherimg{
+                font-weight: bolder ;
+            }
         }
     }
-}
 
-.content-area{
-    color: red ;
-    
+    mat-dialog-actions{
+        button{
+            font-weight: bolder;
+        }
+    }
 }
 
 .dropzone{

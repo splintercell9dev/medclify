@@ -6,16 +6,18 @@ mat-toolbar{
    z-index: 2;
 
    span.nav-title{
-      font-family: 'fredoka one';
-      font-size: 20px;
+      font-family: 'roboto mono', monospace;
+      font-weight: bold;
+      font-size: 24px;
       margin-left: 0.25rem;
       margin-right: 1rem ;
-      letter-spacing: 0.25rem;
+      letter-spacing: 0.15rem;
    }
 
    .brand-icon{
       transform: scaleX(-1);
       text-shadow: 0 5px 10px gray;
+      @include IconSetup(28px) ;
    }
 
    span.spacing{
@@ -29,6 +31,7 @@ mat-toolbar{
 
    button{
       font-weight: bold;
+      font-size: 16px;
 
       &.toggle{
          & + button.desktop-button{

@@ -1,20 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { FileDetail } from '@core/model/file-detail';
-import { FileSystemEntry, FileSystemFileEntry, NgxFileDropEntry } from 'ngx-file-drop';
+import { FileDetail } from '@core/model/interface';
+import { FileSystemFileEntry, NgxFileDropEntry } from 'ngx-file-drop';
+
+const units = [
+  'bytes',
+  'KB',
+  'MB',
+  'GB',
+  'PB'
+] ;
 
 @Component({
   selector: 'app-upload-dialog',
   templateUrl: './upload-dialog.component.html',
   styleUrls: ['./upload-dialog.component.scss']
 })
-export class UploadDialogComponent implements OnInit {
 
+export class UploadDialogComponent implements OnInit {
   private files: NgxFileDropEntry[] = [] ;
   showFileDrop = true ;
   imgUrl!: string | ArrayBuffer | null;
-  fileDetail!: FileDetail;
   responseData!: File;
+  dataSource!: FileDetail[];
+  displayedColumns = ['name', 'size', 'type'] ;
+
   constructor(private dialogRef: MatDialogRef<UploadDialogComponent>) {}
 
   fileDropped(files: NgxFileDropEntry[]): void{
@@ -22,10 +32,17 @@ export class UploadDialogComponent implements OnInit {
     if (this.files.length > 0){
       const fileEntry = this.files[0].fileEntry as FileSystemFileEntry ;
       const reader = new FileReader() ;
-      fileEntry.file( filedata => {
-        this.responseData = filedata ;
-        this.fileDetail = new FileDetail(filedata.name, filedata.size, filedata.type) ;
-        reader.readAsDataURL(filedata) ;
+
+      fileEntry.file( data => {
+        this.responseData = data ;
+        this.dataSource = [] ;
+        const fileDetail = {
+          name: data.name.slice(0, data.name.lastIndexOf('.')),
+          type: data.type,
+          size: this.transform(data.size, units)
+        } ;
+        this.dataSource.push(fileDetail) ;
+        reader.readAsDataURL(data) ;
         reader.onload = () => {
           this.imgUrl = reader.result ;
           this.showFileDrop = false ;
@@ -34,14 +51,23 @@ export class UploadDialogComponent implements OnInit {
     }
   }
 
+  private transform(size: number, arrUnits: string[]): string{
+    let unit = 0 ;
+
+    while (size >= 1024){
+        size /= 1024 ;
+        unit++ ;
+    }
+
+    return `${size.toFixed(2)} ${arrUnits[unit]}` ;
+}
+
   toggleFileView(): void{
     this.showFileDrop = !this.showFileDrop ;
   }
 
   uploadPicture(): void{
-    this.dialogRef.close({
-      data: this.responseData
-    }) ;
+    this.dialogRef.close(this.responseData) ;
   }
 
   ngOnInit(): void {

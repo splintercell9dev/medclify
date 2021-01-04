@@ -13,9 +13,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { MatTableModule } from '@angular/material/table' ;
 import { UploadDialogComponent } from '@shared/components/upload-dialog/upload-dialog.component';
+import { ResultDialogComponent } from '@shared/components/result-dialog/result-dialog.component';
+import { CheckNullModule } from '@shared/check-null/check-null.module';
 
 @NgModule({
-  declarations: [NavComponent, UploadDialogComponent],
+  declarations: [NavComponent, UploadDialogComponent, ResultDialogComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -28,7 +30,8 @@ import { UploadDialogComponent } from '@shared/components/upload-dialog/upload-d
     FlexLayoutModule,
     MatDialogModule,
     NgxFileDropModule,
-    MatTableModule
+    MatTableModule,
+    CheckNullModule
   ],
   exports: [NavComponent]
 })

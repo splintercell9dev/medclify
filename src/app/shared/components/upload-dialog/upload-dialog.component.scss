@@ -1,42 +1,41 @@
-div.upload-container{
-    h1{
+h1{
+    font-weight: bolder;
+}
+
+mat-dialog-content{
+    div.file-detail{
+        padding: 10px;
+        text-align: center;
+        img{
+            width: 200px;
+            border-radius: 10%;
+        }
+
+        table{
+            text-align: left;
+            margin-top: 1rem ;
+            margin-bottom: 1.5rem;
+            width: 100% ;
+
+            th{
+                font-size: 12pt;
+                font-weight: bolder;
+            }
+            
+            td{
+                font-size: 10pt;
+                font-weight: 600;
+            }
+        }
+        #anotherimg{
+            font-weight: bolder ;
+        }
+    }
+}
+
+mat-dialog-actions{
+    button{
         font-weight: bolder;
-    }
-
-    mat-dialog-content{
-        div.file-detail{
-            padding: 10px;
-            text-align: center;
-            img{
-                width: 200px;
-            }
-
-            table{
-                text-align: left;
-                margin-top: 1rem ;
-                margin-bottom: 1.5rem;
-                width: 100% ;
-
-                th{
-                    font-size: 12pt;
-                    font-weight: bolder;
-                }
-
-                td{
-                    font-size: 10pt;
-                    font-weight: 600;
-                }
-            }
-            #anotherimg{
-                font-weight: bolder ;
-            }
-        }
-    }
-
-    mat-dialog-actions{
-        button{
-            font-weight: bolder;
-        }
     }
 }
 

@@ -8,7 +8,7 @@ mat-toolbar{
    span.nav-title{
       font-family: 'roboto mono', monospace;
       font-weight: bold;
-      font-size: 24px;
+      font-size: 18px;
       margin-left: 0.25rem;
       margin-right: 1rem ;
       letter-spacing: 0.15rem;
@@ -17,7 +17,7 @@ mat-toolbar{
    .brand-icon{
       transform: scaleX(-1);
       text-shadow: 0 5px 10px gray;
-      @include IconSetup(28px) ;
+      @include IconSetup(22px) ;
    }
 
    span.spacing{
@@ -31,7 +31,7 @@ mat-toolbar{
 
    button{
       font-weight: bold;
-      font-size: 16px;
+      font-size: 14px;
 
       &.toggle{
          & + button.desktop-button{
@@ -55,11 +55,11 @@ mat-toolbar{
 @media screen and (min-width: 599px){
    mat-toolbar{
       span.nav-title{
-         font-size: 25px;
+         font-size: 22px;
       }
    
       .brand-icon{
-         @include IconSetup(32px) ;
+         @include IconSetup(28px) ;
       }
    }
 }

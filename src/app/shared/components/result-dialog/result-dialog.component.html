@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Species Info</h1>
+
+<mat-dialog-content>
+    <div *ngIf="backgroundUrl; else dummyImg" [style.backgroundImage]="'url(' + backgroundUrl + ')'"></div>
+    <ng-template #dummyImg>
+        <div [style.backgroundImage]="'url(' + backgroundUrl + ')'"></div>
+    </ng-template>
+    <h2>Common Name</h2>
+    <p>{{data.common_name | checkNull }}</p>
+    <h2>Scientific Name</h2>
+    <p>{{data.scientific_name | checkNull }}</p>
+    <h2>Genus</h2>
+    <p>{{data.genus | checkNull }}</p>
+    <h2>Family</h2>
+    <p>{{data.family | checkNull }}</p>
+    <h2>Year</h2>
+    <p>{{data.year | checkNull }}</p>
+    <h2>Bibliography</h2>
+    <p>{{data.bibliography | checkNull }}</p>
+    <h2>Author</h2>
+    <p>{{data.author | checkNull }}</p>
+    <h2>Status</h2>
+    <p>{{data.status | checkNull }}</p>
+    <h2>Rank</h2>
+    <p>{{data.rank | checkNull }}</p>
+    <h2>Observations</h2>
+    <p>{{data.observations | checkNull }}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-stroked-button color="warn" mat-dialog-close>Close</button>
+    <button mat-stroked-button (click)="routeToSpecies()" >Show More</button>
+</mat-dialog-actions>

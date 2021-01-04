@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { BehaviorSubject } from 'rxjs';
 
@@ -8,15 +9,15 @@ import { BehaviorSubject } from 'rxjs';
 export class AppSettingsService {
   darkMode: BehaviorSubject<boolean> ;
   theme: string | null;
-  isLoading = new BehaviorSubject<boolean>(false) ;
-  constructor(private detector: DeviceDetectorService) {
+
+  constructor(private detector: DeviceDetectorService, private toast: MatSnackBar) {
     this.theme = localStorage.getItem('theme') ;
     if (!this.theme){
       this.theme = 'light' ;
       localStorage.setItem('theme', this.theme) ;
     }
 
-    if (this.theme == 'light'){
+    if (this.theme === 'light'){
       this.darkMode = new BehaviorSubject<boolean>(false) ;
     }
     else{
@@ -24,13 +25,13 @@ export class AppSettingsService {
     }
   }
 
-  private changeTheme(theme: string){
+  private changeTheme(theme: string): void{
     this.theme = theme ;
     localStorage.setItem('theme', theme) ;
   }
 
   toggleDarkMode(): void{
-    if (this.theme == 'light'){
+    if (this.theme === 'light'){
       this.darkMode.next(true) ;
       this.changeTheme('dark') ;
     }
@@ -38,5 +39,11 @@ export class AppSettingsService {
       this.darkMode.next(false) ;
       this.changeTheme('light') ;
     }
+  }
+
+  showSnackBar(msg: string, time: number): void{
+    this.toast.open(msg, undefined, {
+      duration: time
+    }) ;
   }
 }

@@ -12,6 +12,10 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="mat-typography">
-  <app-root></app-root>
+  <app-root>
+    <div class="load-overlay" *ngIf="isLoading">
+      <div class="loader"></div>
+    </div>
+  </app-root>
 </body>
 </html>

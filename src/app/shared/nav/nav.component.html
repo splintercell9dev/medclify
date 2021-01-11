@@ -2,7 +2,7 @@
    <mat-icon class="brand-icon">eco</mat-icon>
    <span class="nav-title">Medclify</span>
 
-   <button fxHide.lt-sm fxShow class="desktop-button" mat-button>About Medclify</button>
+   <button fxHide.lt-sm fxShow class="desktop-button" (click)="openAboutDialog()" mat-button>About Medclify</button>
    <button fxHide.lt-sm fxShow class="desktop-button" (click)="openUploadDialog()" mat-button>Classify Image</button>
    
    <span class="spacing"></span>
@@ -18,7 +18,7 @@
 </mat-toolbar>
 
 <mat-menu #menu="matMenu">
-   <button mat-menu-item>
+   <button (click)="openAboutDialog()" mat-menu-item>
       <mat-icon>info</mat-icon>
       <span>About MedClify</span>
    </button>

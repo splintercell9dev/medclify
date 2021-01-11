@@ -1,9 +1,11 @@
 <h1 mat-dialog-title>Species Info</h1>
 
 <mat-dialog-content>
-    <div *ngIf="backgroundUrl; else dummyImg" [style.backgroundImage]="'url(' + backgroundUrl + ')'"></div>
+    <div *ngIf="data.image_url; else dummyImg" class="image-avatar mat-elevation-z4" defaultImage="./assets/images/imageloader.gif" [lazyLoad]="data.image_url"></div>
     <ng-template #dummyImg>
-        <div [style.backgroundImage]="'url(' + backgroundUrl + ')'"></div>
+        <div class="dummy-data-avatar mat-elevation-z4" matTooltip="No Image Available!">
+            <mat-icon>wallpaper</mat-icon>
+        </div>
     </ng-template>
     <h2>Common Name</h2>
     <p>{{data.common_name | checkNull }}</p>
@@ -29,5 +31,5 @@
 
 <mat-dialog-actions align="end">
     <button mat-stroked-button color="warn" mat-dialog-close>Close</button>
-    <button mat-stroked-button (click)="routeToSpecies()" >Show More</button>
+    <a [href]="data.link" target="_self" mat-stroked-button>Show More</a>
 </mat-dialog-actions>

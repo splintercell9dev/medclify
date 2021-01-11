@@ -12,12 +12,14 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { MatTableModule } from '@angular/material/table' ;
-import { UploadDialogComponent } from '@shared/components/upload-dialog/upload-dialog.component';
-import { ResultDialogComponent } from '@shared/components/result-dialog/result-dialog.component';
-import { CheckNullModule } from '@shared/check-null/check-null.module';
+import { UploadDialogComponent } from '@shared/nav/upload-dialog/upload-dialog.component';
+import { ResultDialogComponent } from '@shared/nav/result-dialog/result-dialog.component';
+import { PipeModule } from '@shared/pipe/pipe.module';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
-  declarations: [NavComponent, UploadDialogComponent, ResultDialogComponent],
+  declarations: [NavComponent, UploadDialogComponent, ResultDialogComponent, AboutComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -31,8 +33,9 @@ import { CheckNullModule } from '@shared/check-null/check-null.module';
     MatDialogModule,
     NgxFileDropModule,
     MatTableModule,
-    CheckNullModule
+    PipeModule,
+    LazyLoadImageModule
   ],
   exports: [NavComponent]
 })
-export class NavModule { }
+export class NavModule{}

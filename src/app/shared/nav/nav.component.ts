@@ -2,9 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from '@core/service/api.service';
 import { AppSettingsService } from '@core/service/app-settings.service';
-import { ResultDialogComponent } from '@shared/components/result-dialog/result-dialog.component';
-import { UploadDialogComponent } from '@shared/components/upload-dialog/upload-dialog.component';
+import { ResultDialogComponent } from '@shared/nav/result-dialog/result-dialog.component';
+import { UploadDialogComponent } from '@shared/nav/upload-dialog/upload-dialog.component';
 import { SubSink } from 'subsink';
+import { AboutComponent } from './about/about.component';
 
 @Component({
   selector: 'app-nav',
@@ -47,7 +48,7 @@ export class NavComponent implements OnInit, OnDestroy {
         const formData = new FormData() ;
         formData.append('image', result) ;
 
-        this.api.classifyImage(formData).subscribe( val => {
+        this.subs.sink = this.api.classifyImage(formData).subscribe( val => {
           this.dialog.open(ResultDialogComponent, {
             width: '350px',
             disableClose: true,
@@ -58,12 +59,17 @@ export class NavComponent implements OnInit, OnDestroy {
         (err) => {
           this.conf.showSnackBar('Error occurred while getting info from server!', 3000) ;
         }) ;
-
-        // this.api.test().subscribe( (data) => {
-        //   console.log(data)
-        // }) ;
       }
 
+    }) ;
+  }
+
+  openAboutDialog(): void{
+    const dialog = this.dialog.open(AboutComponent, {
+      disableClose: true,
+      closeOnNavigation: true,
+      width: '500px',
+      maxWidth: '90vw'
     }) ;
   }
 

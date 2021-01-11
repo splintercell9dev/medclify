@@ -1,0 +1,32 @@
+@import 'helper' ;
+
+div{
+    @include ResultAvatar() ;
+    transition: 0.5s;
+}
+
+div.image-avatar{
+    background-position: center ;
+    background-size: cover ;
+    background-repeat: no-repeat ;
+}
+
+div.dummy-data-avatar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(231, 231, 231, 0.3) ;
+
+    mat-icon{
+        @include IconSetup(28px) ;
+    }
+}
+
+h2{
+    margin-bottom: 0px;
+    font-size: 15px;
+}
+
+p{
+    font-size: 11px;
+}

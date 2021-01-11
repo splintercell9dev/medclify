@@ -1,0 +1,143 @@
+$brand-icon-desktop: 32px ;
+$brand-icon-mobile: 28px ;
+$img-icon-dimension: 48px ;
+$normal-margin-y: 1.5rem ;
+$tree-width: 24rem ;
+$data-header-font-size: 18px ;
+$data-sub-header-font-size: 14px ;
+$data-value-font-size: 12px ;
+
+@mixin IconSetup($dimension) {
+   width: $dimension ;
+   height: $dimension;
+   font-size: $dimension;
+}
+
+@mixin CardPadding($size){
+   text-align: left !important;
+   div.icon{
+      margin-top: 0 !important;
+      padding: $size/2 !important;
+   }
+   p{
+      padding: $size !important;
+   }
+}
+
+@mixin MarginXY($x, $y){
+   margin-left: $x;
+   margin-right: $x;
+   margin-top: $y;
+   margin-bottom: $y;
+}
+
+@mixin PaddingXY($x, $y){
+   padding: $x $y ;
+}
+
+@mixin DataHeader{
+   font-size: $data-header-font-size ;
+   text-decoration: underline;
+   text-underline-position: under;
+   margin-bottom: 5px;
+   font-weight: bolder;
+   color: rgb(20, 173, 0) ;
+}
+
+@mixin ResultAvatar{
+   height: 100px ;
+   width: 100px ;
+   overflow: hidden;
+   margin-top: 10px;
+   margin-right: 10px ;
+   float: left;
+   border-radius: 0.8rem ;
+}
+
+@mixin DataValue{
+   font-size: $data-value-font-size ;
+   font-weight: 600;
+}
+
+@mixin DataSubHeader {
+   margin-top: 10px ;
+   padding-left: 10px;
+   font-size: $data-sub-header-font-size;
+   padding-bottom: 5px;
+   font-style: italic;
+   font-weight: bold;
+}
+
+@mixin SubImages{
+   width: 80px ;
+   height: 80px ;
+   border-radius: 10px;
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+@mixin FlexValues{
+   @include MarginXY(auto, auto) ;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   padding: 10px ;
+}
+
+@mixin DivContainerForImage{
+   margin: 10px;
+}
+
+@mixin DivNone {
+   @include DataValue() ;
+   margin-bottom: 10px ;
+}
+
+@mixin ExpansionPanelSetup{
+   mat-expansion-panel{
+      margin-bottom: 15px ;
+      
+      mat-expansion-panel-header{
+         div.data-header{
+            @include DataHeader() ;
+         }
+      }
+      
+      mat-panel-description{
+         div.chip-container{
+            padding-bottom: 10px ;
+         }
+         
+         span.truncate{
+            text-overflow: ellipsis ;
+            white-space: nowrap;
+            overflow: hidden;
+         }
+         
+         div.none{
+            @include DivNone() ;
+         }
+         
+         .mat-chip{
+            @include DataValue() ;
+         }
+      }
+   }
+}
+
+@mixin FlexContainer{
+   display: flex ;
+   align-items: stretch ;
+   justify-items: start ;
+   padding: 10px ;
+   
+   div.bullet{
+      margin-right: 10px ;
+   }
+   
+   p.data-value{
+      font-size: $data-value-font-size;
+   }
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppSettingsService } from '@core/service/app-settings.service';
+import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-not-found',
@@ -7,7 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
-  constructor() { }
+  isDark = false ;
+  subs = new SubSink() ;
+
+  constructor(private conf: AppSettingsService){
+    this.subs.sink = this.conf.darkMode.subscribe( val => {
+      this.isDark = val ;
+    });
+  }
 
   ngOnInit(): void {
   }

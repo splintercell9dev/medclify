@@ -1,1 +1,11 @@
-<p>not-found works!</p>
+<div class="not-found-container">
+    <div class="absolute-container">
+        <div class="icon-container">
+            <mat-icon [ngClass]="{ 'dark-title': isDark, 'light-title': !isDark }">
+                error_outline
+            </mat-icon>
+        </div>
+        <div class="title" [ngClass]="{ 'dark-title': isDark, 'light-title': !isDark }">404 Error</div>
+        <p class="subtitle">Ooops! looks like the Webpage you are requesting doesnot exist. Please check your URL and then try again.</p>
+    </div>
+</div>

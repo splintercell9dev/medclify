@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class ApiService {
-  requestUrl = 'http://localhost:3000/api/' ;
+  requestUrl = '/api/' ;
   constructor(private http: HttpClient){}
 
   classifyImage(data: FormData): Observable<PlantLimitedInfo>{

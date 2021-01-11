@@ -40,24 +40,24 @@ export interface PlantLimitedInfo{
     family: string;
 }
 
-interface Synonym {
+export interface Synonym {
     name: string;
     author: string;
 }
 
-interface Source {
+export interface Source {
     name: string;
     url: string;
     citation?: string;
 }
 
-interface Images {
+export interface Images {
     fruit: Fruit[];
     leaf: Fruit[];
     flower: Fruit[];
 }
 
-interface Fruit {
+export interface Fruit {
     image_url: string;
     copyright: string;
 }

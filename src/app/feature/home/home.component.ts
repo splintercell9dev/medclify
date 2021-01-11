@@ -16,15 +16,15 @@ export class HomeComponent implements OnInit, OnDestroy  {
   stepsToClassify = [
     {
       icon: 'add_a_photo',
-      description: 'Capture a photo of leaf of a particular plant that needs to be checked.'
+      description: 'Capture a photo of leaf of a plant that needs to be classified.'
     },
     {
       icon: 'cloud_upload',
-      description: 'Upload that image to the dedicated server from the provided form.'
+      description: 'Upload that image to the server for classification.'
     },
     {
       icon: 'receipt_long',
-      description: 'Server will give a response with name it\'s type & it\'s prediction score.'
+      description: 'Response from serve contains small details about that species'
     }
   ] ;
 

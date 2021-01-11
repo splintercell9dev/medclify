@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeRoutingModule } from './home-routing.module';
+import { FooterModule } from '@shared/footer/footer.module';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -17,7 +18,8 @@ import { HomeRoutingModule } from './home-routing.module';
     MatCardModule,
     MatButtonModule,
     FlexLayoutModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    FooterModule
   ]
 })
 export class HomeModule { }

@@ -158,6 +158,7 @@ div.home-container{
       width: 30rem ;
       height: 350px ;
       @include MarginXY(auto, 2.5rem) ;
+      margin-bottom: 0px;
 
       img{
          position: absolute;

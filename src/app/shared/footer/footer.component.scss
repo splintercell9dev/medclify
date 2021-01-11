@@ -1,0 +1,39 @@
+@import 'helper' ;
+
+div.footer-container{
+    margin-bottom: 2.5rem ;
+
+    div.name{
+        display: flex ;
+        justify-content: center ;
+        align-items: center ;
+        margin-bottom: 10px;
+
+        mat-icon{
+            transform: scaleX(-1);
+        }
+
+        span{
+            font-size: 18px ;
+            font-weight: bolder
+        }
+    }
+
+    p{
+        @include MarginXY(auto, 0) ;
+        width: 300px ;
+        max-width: 90vw ;
+        text-align: center;
+        font-size: 12px ;
+
+        a{
+            color: purple ;
+            font-weight: bold;
+            text-decoration: none ;
+        }
+    }
+}
+
+.dark-link{
+    color: orange !important;
+}

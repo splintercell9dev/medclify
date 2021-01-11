@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MediaObserver } from '@angular/flex-layout';
+import { Title } from '@angular/platform-browser';
 import { AppSettingsService } from '@core/service/app-settings.service';
 import { SubSink } from 'subsink';
 
@@ -24,14 +25,15 @@ export class HomeComponent implements OnInit, OnDestroy  {
     },
     {
       icon: 'receipt_long',
-      description: 'Response from serve contains small details about that species'
+      description: 'Response from server will contain details about species'
     }
   ] ;
 
-  constructor(private conf: AppSettingsService){
+  constructor(private conf: AppSettingsService, private title: Title){
     this.subs.sink = this.conf.darkMode.subscribe( value => {
       this.isDark = value ;
     }) ;
+    this.title.setTitle('Medclify | Welcome')
   }
 
   onScroll(event: any): void{

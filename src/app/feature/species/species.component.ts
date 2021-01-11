@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { PlantFullInfo } from '@core/model/interface';
 import { ApiService } from '@core/service/api.service';
@@ -23,7 +24,7 @@ export class SpeciesComponent implements OnInit, OnDestroy {
 
   subs = new SubSink() ;
 
-  constructor(private route: ActivatedRoute, private conf: AppSettingsService, private api: ApiService){
+  constructor(private route: ActivatedRoute, private conf: AppSettingsService, private api: ApiService,private title: Title){
     this.animType = 'progress' ;
     this.index = this.route.snapshot.params.id ;
     this.subs.sink = this.conf.darkMode.subscribe(value => {
@@ -40,10 +41,12 @@ export class SpeciesComponent implements OnInit, OnDestroy {
         this.subs.sink = this.api.getFullInfo(num).subscribe( val => {
           this.info = val ;
           this.error = false ;
+          this.title.setTitle(`Medclify | ${val.common_name}`) ;
         },
         err => {
           console.log(err) ;
           this.error = true ;
+          this.title.setTitle(`Medclify | Error Occurred`) ;
         }) ;
       }
       else{

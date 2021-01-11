@@ -28,13 +28,9 @@ export class HomeComponent implements OnInit, OnDestroy  {
     }
   ] ;
 
-  constructor(private conf: AppSettingsService, private mediaObserver: MediaObserver){
+  constructor(private conf: AppSettingsService){
     this.subs.sink = this.conf.darkMode.subscribe( value => {
       this.isDark = value ;
-    }) ;
-
-    this.subs.sink = this.mediaObserver.asObservable().subscribe( change => {
-      console.log(change[0].mqAlias) ;
     }) ;
   }
 

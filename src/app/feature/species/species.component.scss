@@ -1,0 +1,147 @@
+@import 'helper' ;
+
+div.species-container{
+    overflow-y: auto;
+    height: calc(100% - 64px) ;
+
+    div.dummy-container{
+        @include MarginXY(auto, 1.8rem) ;
+        max-width: 40rem ;
+        width: 90vw ;
+    
+        div.dummy-section{
+            display: flex;
+    
+            div.dummy-title{
+                padding: 5px;
+                width: 100% ;
+            }
+        }
+    
+        div.dummy-content{
+            display: block;
+        }
+    }
+
+    div.data-container{
+        @include MarginXY(auto, 1.8rem) ;
+        max-width: 40rem ;
+        width: 90vw ;
+        padding: 10px ;
+
+        div.data-section{
+            display: flex ;
+            align-items: flex-start;
+            margin-bottom: 10px;
+
+            div.data-avatar{
+                display: inline;
+                width: 110px ;
+                height: 110px ;
+                background-position: center;
+                background-size: cover ;
+                background-repeat: no-repeat;
+                border-radius: 10px;
+                transition: 0.5s ;
+            }
+
+            div.dummy-data-avatar{
+                display: inline;
+                width: 110px ;
+                height: 110px ;
+                background: rgba(231, 231, 231, 0.3) ;
+                border-radius: 10px;
+                position: relative;
+                cursor: default;
+                user-select: none;
+                transition: 0.5s;
+
+
+                mat-icon{
+                    display: block;
+                    position: absolute;
+                    top: 50% ;
+                    left: 50% ;
+                    transform: translate(-50%, -50%);
+                    @include IconSetup(48px) ;
+                }
+            }
+
+            div.data-title{
+                flex: 1;
+                padding-left: 15px ; 
+
+                div.property{
+                    margin-bottom: 10px;
+                    
+                    div.data-header{
+                        @include DataHeader ;
+                    }
+    
+                    div.data-value{
+                        @include DataValue ;
+                    }
+                }
+            }
+        }
+    }
+
+    div.error-container{
+        position: relative;
+        width: 100% ;
+        height: 100% ;
+        
+        div.error-box{
+            position: absolute ;
+            top: 50% ;
+            left: 50% ;
+            transform: translate(-50%, -50%);
+            text-align: center;
+
+            div.error-icon{
+                @include MarginXY(auto, 10px) ;
+                mat-icon{
+                    @include IconSetup(76px) ;
+                }
+            }
+
+            div.error-description{
+                h1{
+                    font-size: 28px ;
+                    font-weight: bolder;
+                }
+                p{
+                    font-size: 14px ;
+                }
+            }
+        }
+    }
+}
+
+.dark-background{
+    background-color: #303030 ; 
+}
+
+.dark-title{
+    background: linear-gradient(45deg, orange, red);
+    background-clip: text;
+    color: transparent;
+}
+
+.light-title{
+    background-image: linear-gradient(45deg, blue, crimson);
+    background-clip: text;
+    color: transparent;
+}
+
+@media (max-width: 599px){
+    div.species-container{
+        height: calc(100% - 54px) ;
+    }
+
+    div.error-container{
+        div.error-box{
+            width: 90vw ;
+        }
+    }
+}

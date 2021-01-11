@@ -1,0 +1,15 @@
+<div class="data-header">
+    Edible Uses
+</div>
+<div class="data-multiple-container">
+    <div class="edible-container">
+        <div class="flex-container" *ngFor="let use of euses">
+            <div class="bullet">
+                <img src="./assets/images/clover_bullet.png" alt="bullet" width="24" height="24">
+            </div>
+            <div>
+                <p class="data-value">{{ use }}</p>
+            </div>
+        </div>
+    </div>
+</div>

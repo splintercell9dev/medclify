@@ -1,0 +1,13 @@
+@import 'helper' ;
+
+@include ExpansionPanelSetup() ;
+
+@media (max-width: 599px){
+    .mat-chip{
+        max-width: 82% !important;
+    }
+
+    .chip-container{
+        max-width: 88% !important; 
+    }
+}

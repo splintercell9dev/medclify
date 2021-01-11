@@ -1,1 +1,131 @@
-<p>species works!</p>
+<div class="species-container">
+    <div class="dummy-container" *ngIf="!info && !error">
+        <div class="dummy-section">
+            <div class="dummy-avatar">
+                <ngx-skeleton-loader [theme]="{'border-radius': '10px', width: '110px', height: '110px','background-color': backColor}" appearance="circle" [animation]="animType"></ngx-skeleton-loader>
+            </div>
+            <div class="dummy-title">
+                <div *ngFor="let i of [0,1]">
+                    <ngx-skeleton-loader class="dummy-header" [theme]="{
+                        height: '1.25rem',
+                        width: '100%',
+                        'background-color': backColor
+                      }" [animation]="animType"></ngx-skeleton-loader>
+                    <ngx-skeleton-loader class="dummy-value" [theme]="{
+                        height: '0.8rem',
+                        width: '60%',
+                        'background-color': backColor
+                      }" animation="pulse"></ngx-skeleton-loader>
+                </div>
+            </div>
+        </div>
+        <div class="dummy-content">
+            <div *ngFor="let j of [0,1,2,3,4]">
+                <ngx-skeleton-loader class="dummy-header" [theme]="{
+                    height: '1.25rem',
+                    width: '100%',
+                    'background-color': backColor
+                  }" [animation]="animType"></ngx-skeleton-loader>
+                <ngx-skeleton-loader class="dummy-value" [theme]="{
+                    height: '0.8rem',
+                    width: '60%',
+                    'background-color': backColor
+                  }" animation="pulse"></ngx-skeleton-loader>
+            </div>
+            <div *ngFor="let i of [0,1,3]">
+                <ngx-skeleton-loader class="dummy-small-header" [theme]="{
+                    height: '1.25rem',
+                    width: '60%',
+                    'background-color': backColor
+                  }" [animation]="animType"></ngx-skeleton-loader>
+                <ngx-skeleton-loader class="dummy-div" [theme]="{
+                    height: '5rem',
+                    width: '100%',
+                    'background-color': backColor
+                  }" animation="pulse"></ngx-skeleton-loader>
+            </div>
+        </div>
+    </div>
+    
+    <div class="data-container" *ngIf="info">
+        <div class="data-section">
+            <div *ngIf="info.image_url; else dummyImage" class="data-avatar mat-elevation-z5" defaultImage="./assets/images/imageloader.gif" [lazyLoad]="info.image_url">
+            </div>
+            <ng-template #dummyImage>
+                <div matTooltip="No Image Available!" class="dummy-data-avatar mat-elevation-z5">
+                    <mat-icon>wallpaper</mat-icon>
+                </div>
+            </ng-template>
+            <div class="data-title">
+                
+                <div class="property">
+                    <div class="data-header">
+                        Common Name
+                    </div>
+                    <div class="data-value">
+                        {{ info.common_name | checkNull }}
+                    </div>
+                </div>
+
+                <div class="property">
+                    <div class="data-header">
+                        Scientific Name
+                    </div>
+                    <div class="data-value">
+                        {{ info.scientific_name | checkNull }}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="data-content">
+            
+            <mat-accordion>
+                <!-- info limited -->
+                <app-info-limited [info]="info"></app-info-limited>
+
+                <!-- info images -->
+                <app-info-images [images]="info.images"></app-info-images>
+
+                <!-- common_names -->
+                <app-common-names [names]="info.common_names"></app-common-names>
+
+                <!-- native distribution -->
+                <app-native-distributions [places]="info.distribution"></app-native-distributions>
+
+                <!-- synonyms -->
+                <app-synonyms [synonyms]="info.synonyms"></app-synonyms>
+            </mat-accordion>
+
+            <!-- edible uses -->
+            <app-edible-uses [euses]="info.edible"></app-edible-uses>
+
+            <!-- medical uses -->
+            <app-medical-uses [muses]="info.medical"></app-medical-uses>
+
+            <!-- sources -->
+            <app-sources [sources]="info.sources"></app-sources>
+
+        </div>
+    </div>
+
+    <div class="error-container" *ngIf="error">
+        <div class="error-box">
+            <div class="error-icon">
+                <mat-icon [ngClass]="{ 'dark-title': isDark, 'light-title': !isDark }">error_outline</mat-icon>
+            </div>
+            <div class="error-description">
+                <h1 [ngClass]="{ 'dark-title': isDark, 'light-title': !isDark }">Error Occurred !</h1>
+                <p>
+                    Either the species you are accessing doesnot exist on our server or you have entered wrong species index.
+                </p>
+                <p>
+                    Also check your Internet connection whether that's not causing any issue.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <app-footer></app-footer>
+</div>

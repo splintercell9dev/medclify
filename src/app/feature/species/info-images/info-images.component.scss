@@ -1,0 +1,74 @@
+@import 'helper' ;
+
+div.data-header{
+    @include DataHeader() ;
+}
+
+div.data-multiple-container{
+
+    .fruit-image, .leaf-image, .flower-image{
+        transition: 0.5s ;
+    }
+
+    .fruit{
+
+        .fruit-header{
+            @include DataSubHeader() ;
+        }
+
+        .fruit-values{
+            @include FlexValues() ;
+
+            div{
+                @include DivContainerForImage() ;
+
+                .fruit-image{
+                    @include SubImages() ;
+                }
+            }
+        }
+
+    }
+
+    .leaf{
+
+        .leaf-header{
+            @include DataSubHeader() ;
+        }
+
+        .leaf-values{
+            @include FlexValues() ;
+
+            div{
+                @include DivContainerForImage() ;
+
+                .leaf-image{
+                    @include SubImages() ;
+                }
+            }
+        }
+    }
+
+    .flower{
+
+        .flower-header{
+            @include DataSubHeader() ;
+        }
+
+        .flower-values{
+            @include FlexValues() ;
+
+            div{
+                @include DivContainerForImage() ;
+            
+                .flower-image{
+                    @include SubImages() ;
+                }
+            }
+        }
+    }
+
+    .none{
+        @include DivNone() ;
+    }
+}

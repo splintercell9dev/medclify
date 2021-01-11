@@ -1,0 +1,55 @@
+<div class="data-header">
+    Images
+</div>
+<div class="data-multiple-container">
+    <!-- fruit -->
+    <div class="fruit" *ngIf="images.fruit">
+
+        <div class="fruit-header">
+            Fruits
+        </div>
+
+        <div class="fruit-values">
+            <div *ngFor="let img of images.fruit">
+                <!-- <div class="fruit-image mat-elevation-z4" [style.backgroundImage]="'url(' + img.image_url + ')'" [matTooltip]="img.copyright"></div> -->
+                <div class="fruit-image mat-elevation-z4" defaultImage="./assets/images/imageloader.gif" [lazyLoad]="img.image_url" [matTooltip]="img.copyright"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="leaf" *ngIf="images.leaf">
+
+        <div class="leaf-header">
+            Leaves
+        </div>
+
+        <div class="leaf-values">
+            <div *ngFor="let img of images.leaf">
+                <!-- <div class="leaf-image mat-elevation-z4" [style.backgroundImage]="'url(' + img.image_url + ')'" [matTooltip]="img.copyright"></div> -->
+                <div class="leaf-image mat-elevation-z4" defaultImage="./assets/images/imageloader.gif" [lazyLoad]="img.image_url" [matTooltip]="img.copyright"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="flower" *ngIf="images.flower">
+
+        <div class="flower-header">
+            Flowers
+        </div>
+
+        <div class="flower-values">
+            <div *ngFor="let img of images.flower">
+                <!-- <div class="flower-image mat-elevation-z4" [style.backgroundImage]="'url(' + img.image_url + ')'" [matTooltip]="img.copyright"></div> -->
+                <div class="flower-image mat-elevation-z4" defaultImage="./assets/images/imageloader.gif" [lazyLoad]="img.image_url" [matTooltip]="img.copyright"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="none" *ngIf="showNull">
+        Null
+    </div>
+
+</div>

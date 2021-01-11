@@ -1,0 +1,30 @@
+@import 'helper' ;
+
+div.data-header{
+    @include DataHeader() ;
+}
+
+div.data-multiple-container{
+    div.sources-container{
+        
+        div.flex-container{
+            @include FlexContainer() ;
+
+            div.bullet{
+                margin-top: 5px ;
+            }
+        }
+
+    }
+}
+
+div.none{
+    @include DivNone() ;
+}
+
+@media (max-width: 599px){
+    div.source-list{
+        width: 85% ;
+        word-wrap: break-word;
+    }
+}

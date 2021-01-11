@@ -1,0 +1,18 @@
+@import 'helper' ;
+
+div.data-header{
+    @include DataHeader() ;
+}
+
+div.data-multiple-container{
+    
+    mat-chip-list{
+        padding: 10px;
+    }
+
+    div.none{
+        @include DivNone() ;
+    }
+}
+
+@include ExpansionPanelSetup() ;

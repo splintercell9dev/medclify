@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CheckNullPipe } from './check-null.pipe';
 
-
-
 @NgModule({
   declarations: [CheckNullPipe],
   imports: [
@@ -11,4 +9,5 @@ import { CheckNullPipe } from './check-null.pipe';
   ],
   exports: [CheckNullPipe]
 })
-export class CheckNullModule { }
+
+export class PipeModule { }

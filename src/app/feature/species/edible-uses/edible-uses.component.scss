@@ -1,0 +1,14 @@
+@import 'helper' ;
+
+div.data-header{
+    margin-top: 10px ;
+    @include DataHeader() ;
+}
+
+div.data-multiple-container{
+    div.edible-container{
+        div.flex-container{
+            @include FlexContainer() ;
+        }
+    }
+}

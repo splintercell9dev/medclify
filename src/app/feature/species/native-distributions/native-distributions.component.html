@@ -1,0 +1,30 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header class="data-header">
+        <div class="data-header">
+            Native Distributions
+        </div>
+    </mat-expansion-panel-header>
+
+    <mat-panel-description>
+        
+        <div class="names-container" *ngIf="places; else nullDiv">
+            <mat-chip-list aria-label="Commom Names">
+                <div class="chip-container">
+                    <mat-chip color="accent" selected *ngFor="let place of places">
+                        <span class="truncate">
+                            {{ place }}
+                        </span>
+                    </mat-chip>
+                </div>
+            </mat-chip-list>
+        </div>
+    
+        <ng-template #nullDiv>
+            <div class="none">
+                Null
+            </div>
+        </ng-template>
+
+    </mat-panel-description>
+
+</mat-expansion-panel>

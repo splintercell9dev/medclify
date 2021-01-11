@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit, OnDestroy  {
     this.subs.sink = this.conf.darkMode.subscribe( value => {
       this.isDark = value ;
     }) ;
-    this.title.setTitle('Medclify | Welcome')
+    this.title.setTitle('Medclify | Welcome') ;
   }
 
   onScroll(event: any): void{

@@ -24,7 +24,7 @@ export class SpeciesComponent implements OnInit, OnDestroy {
 
   subs = new SubSink() ;
 
-  constructor(private route: ActivatedRoute, private conf: AppSettingsService, private api: ApiService,private title: Title){
+  constructor(private route: ActivatedRoute, private conf: AppSettingsService, private api: ApiService, private title: Title){
     this.animType = 'progress' ;
     this.index = this.route.snapshot.params.id ;
     this.subs.sink = this.conf.darkMode.subscribe(value => {
